@@ -315,8 +315,25 @@ body {
    6. SECCIÓN CLIENTES
    ========================================= */
 .clients {
-    padding: var(--space-6) 0;
+    /* 1. Aumentamos el espacio vertical para dar respiro (80px arriba y abajo) */
+    padding: 80px 0; 
     background-color: #f8f9fa; 
+    position: relative; /* Necesario para posicionar el divisor */
+    border-top: 1px solid #e1e8ed; /* Línea separadora muy sutil */
+}
+
+/* 2. Efecto de divisor corporativo (Pestaña Cian) */
+.clients::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Se alinea con el borde superior */
+    left: 50%; /* Lo centramos horizontalmente */
+    transform: translateX(-50%);
+    width: 120px; /* Ancho de la línea decorativa */
+    height: 4px; /* Grosor del divisor */
+    background-color: var(--color-accent); /* Tu color cian corporativo */
+    border-radius: 0 0 6px 6px; /* Bordes redondeados solo abajo */
+    box-shadow: 0 4px 10px rgba(0, 216, 255, 0.2); /* Brillo sutil */
 }
 
 .clients__grid {
