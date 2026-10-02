@@ -117,4 +117,118 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+
+
+    // ==========================================
+    // 4. ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER)
+    // ==========================================
+    // Buscamos todos los elementos que tengan las clases de animación
+    const animatedElements = document.querySelectorAll('.fade-up, .fade-in');
+
+    if (animatedElements.length > 0) {
+        // Configuramos el observador
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // La animación se dispara cuando el 15% del elemento es visible en pantalla
+        };
+
+        // Creamos la función con una sola responsabilidad: mostrar elementos[cite: 23]
+        const elementObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Le agregamos la clase que lo hace visible
+                    entry.target.classList.add('is-visible');
+                    // Dejamos de observarlo para no consumir recursos innecesarios del navegador
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        // Ponemos al observador a vigilar cada elemento
+        animatedElements.forEach(el => {
+            elementObserver.observe(el);
+        });
+    }
+
+
+    // ==========================================
+    // 5. LÓGICA DEL MODAL DE PRIVACIDAD
+    // ==========================================
+    const openPrivacyModal = document.getElementById('openPrivacyModal');
+    const closePrivacyModal = document.getElementById('closePrivacyModal');
+    const privacyModal = document.getElementById('privacyModal');
+
+    if (openPrivacyModal && closePrivacyModal && privacyModal) {
+        
+        // Abrir el modal
+        openPrivacyModal.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita que la página intente navegar a otro lado
+            privacyModal.classList.add('is-active');
+        });
+
+        // Cerrar con el botón 'X'
+        closePrivacyModal.addEventListener('click', () => {
+            privacyModal.classList.remove('is-active');
+        });
+
+        // Cerrar al hacer clic afuera de la caja blanca (en el fondo oscuro)
+        privacyModal.addEventListener('click', (e) => {
+            if (e.target === privacyModal) {
+                privacyModal.classList.remove('is-active');
+            }
+        });
+
+        // Buenas prácticas de Accesibilidad: Cerrar al presionar la tecla "Escape"
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && privacyModal.classList.contains('is-active')) {
+                privacyModal.classList.remove('is-active');
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }); // <-- Aquí se cierra el bloque DOMContentLoaded principal

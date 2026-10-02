@@ -46,10 +46,11 @@
                         <div class="info-block">
                             <h3>Información</h3>
                             <ul>
-                                <li>📍 Carrera 68A #41-64, Ciudad 2000, Cali</li>
+                                <li>📍 Cl. 45 #50-90, Ciudad 2000, Cali, Valle del Cauca</li>
                                 <li>📞 (+57) 3113179819 - 3117406986</li>
                                 <li>✉️ servicioalcliente@assi.com.co</li>
                                 <li>✉️ gerencia@assi.com.co</li>
+                                <li>🕒 Lunes a Viernes - 8:00 a.m. a 6:00 p.m.</li>
                             </ul>
                         </div>
 
@@ -100,6 +101,12 @@
                                 <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe los detalles de tu solicitud..."></textarea>
                             </div>
                             <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
+                            
+                            <!-- Nuevo texto legal debajo del botón -->
+                                <div class="form-legal">
+                                    <p>Al enviar aceptas nuestra <a href="#" id="openPrivacyModal">Política de Privacidad</a>.</p>
+                                </div>
+                            </form>
                         </form>
                     </div>
                 </div>
@@ -113,6 +120,22 @@
             <p>Copyright &copy; 2026 ASSI | assi.com.co</p>
         </div>
     </footer>
+
+
+    <!-- =========================================
+         MODAL DE POLÍTICA DE PRIVACIDAD
+         ========================================= -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closePrivacyModal" aria-label="Cerrar modal">&times;</button>
+            <h3>Política de Privacidad</h3>
+            <p>En ASSI protegemos tus datos personales conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013 de la República de Colombia. La información recolectada a través de este sitio se utiliza únicamente para fines comerciales y de contacto.</p>
+            
+        </div>
+    </div>
+
+
+
     <script src="js/main.js"></script>
 </body>
 </html>
