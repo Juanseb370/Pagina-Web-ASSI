@@ -2,21 +2,19 @@
    1. VARIABLES Y DISEÑO BASE (DESIGN TOKENS)
    ========================================= */
 :root {
-    /* Paleta de colores[cite: 12] */
     --color-primary: #0A2540; /* Azul Marino Oscuro */
     --color-accent: #00D8FF;  /* Cian */
     --color-text: #333333;
     --color-text-light: #666666;
     --color-bg: #FFFFFF;
     
-    /* Escala de espaciado base 8px[cite: 12] */
+    /* Escala de espaciado base 8px[cite: 24] */
     --space-2: 16px;
     --space-3: 24px;
     --space-4: 32px;
     --space-6: 48px;
     --space-8: 64px;
 
-    /* Tipografía[cite: 12] */
     --font-main: 'Inter', sans-serif;
 }
 
@@ -30,7 +28,7 @@ body {
     font-family: var(--font-main);
     color: var(--color-text);
     background-color: var(--color-bg);
-    line-height: 1.5; /* Interlineado recomendado para lectura[cite: 12] */
+    line-height: 1.5;
 }
 
 .container {
@@ -40,9 +38,8 @@ body {
 }
 
 /* =========================================
-   2. COMPONENTES COMPARTIDOS (Botones, Títulos)
+   2. COMPONENTES COMPARTIDOS
    ========================================= */
-/* Botones accesibles de mínimo 44px[cite: 12] */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -53,7 +50,7 @@ body {
     border-radius: 4px;
     text-align: center;
     transition: all 0.3s ease;
-    min-height: 44px; 
+    min-height: 44px; /* Botones accesibles[cite: 24] */
     border: none;
     cursor: pointer;
 }
@@ -98,7 +95,7 @@ body {
 }
 
 /* =========================================
-   3. HEADER Y NAVEGACIÓN
+   3. HEADER Y NAVEGACIÓN (Móvil por defecto)
    ========================================= */
 .header {
     background-color: var(--color-bg);
@@ -117,6 +114,19 @@ body {
 
 .logo {
     display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+}
+
+.logo__img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo__text-group {
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
@@ -134,7 +144,6 @@ body {
     margin-top: -4px;
 }
 
-/* Botón Menú Móvil */
 .nav-toggle {
     display: block;
     background: transparent;
@@ -161,7 +170,6 @@ body {
 .hamburger::before { content: ''; top: -8px; left: 0; }
 .hamburger::after { content: ''; top: 8px; left: 0; }
 
-/* Menú Móvil (Fondo oscuro) */
 .nav {
     position: fixed;
     top: 80px; 
@@ -189,7 +197,7 @@ body {
 
 .nav__link {
     text-decoration: none;
-    color: var(--color-bg); /* Texto blanco en móvil */
+    color: var(--color-bg);
     font-weight: 600;
     font-size: 1.25rem;
 }
@@ -238,10 +246,16 @@ body {
    ========================================= */
 .services, .about {
     padding: var(--space-8) 0;
+}
+
+.about {
+    background-color: #F0F4F8; 
+}
+
+.services {
     background-color: var(--color-bg);
 }
 
-/* Uso de Grid para estructura en 2 dimensiones[cite: 14] */
 .services__grid, .about__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -252,8 +266,9 @@ body {
     background-color: #ffffff;
     padding: var(--space-4);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 15px rgba(10, 37, 64, 0.04);
+    border: 1px solid #e1e8ed;
+    border-top: 4px solid var(--color-primary); 
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -261,10 +276,11 @@ body {
     text-align: center;
 }
 
-.card:hover {
+.card:hover,
+.card.is-active {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    border-color: var(--color-accent);
+    box-shadow: 0 10px 25px rgba(10, 37, 64, 0.1);
+    border-top-color: var(--color-accent); 
 }
 
 .card__icon {
@@ -324,30 +340,30 @@ body {
 }
 
 /* =========================================
-   7. SECCIÓN CONTACTO Y FOOTER
+   7. SECCIÓN CONTACTO
    ========================================= */
-.contact {
-    padding: var(--space-8) 0;
-    background-color: #f8f9fa;
-}
-
 .contact__inner {
     display: grid;
     gap: var(--space-6);
     grid-template-columns: 1fr;
+    align-items: start;
 }
 
 .contact__info h3, .contact__form-wrapper h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--color-primary);
-    margin-bottom: var(--space-3);
-    border-bottom: 2px solid var(--color-accent);
-    display: inline-block;
-    padding-bottom: 4px;
+    margin-bottom: var(--space-4);
+    font-weight: 700;
 }
 
 .info-block {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.info-block h3 {
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    padding-bottom: 4px;
 }
 
 .info-block ul {
@@ -356,56 +372,69 @@ body {
 }
 
 .info-block li {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    font-size: 1.05rem;
 }
 
-.map-container img {
+.map-container {
     width: 100%;
-    height: auto;
+    height: 200px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(10, 37, 64, 0.08);
+    border: 1px solid #e1e8ed;
+    background-color: #f8fafc;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
 
 .social-links {
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-3);
 }
 
 .social-links a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    background-color: var(--color-bg);
+    width: 48px; 
+    height: 48px;
+    background-color: #ffffff;
     color: var(--color-primary);
     border-radius: 50%;
     text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(10, 37, 64, 0.05);
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     background-color: var(--color-primary);
     color: var(--color-bg);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(10, 37, 64, 0.15);
 }
 
 .contact__form-wrapper {
     background-color: var(--color-bg);
-    padding: var(--space-4);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: var(--space-6);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(10, 37, 64, 0.08);
+    border-top: 6px solid var(--color-primary);
 }
 
 .contact__form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
 }
 
 .form-group {
@@ -415,42 +444,64 @@ body {
 }
 
 .form-group label {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-primary);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 14px;
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    color: var(--color-text);
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
+    background-color: #ffffff;
     border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(0, 216, 255, 0.15); 
 }
 
+.contact__form .btn {
+    margin-top: var(--space-2);
+    font-size: 1.1rem;
+    padding: 14px 24px;
+}
+
+/* =========================================
+   8. PIE DE PÁGINA (FOOTER)
+   ========================================= */
 .footer {
     background-color: var(--color-primary);
     color: var(--color-bg);
     padding: var(--space-4) 0;
     text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* =========================================
-   8. MEDIA QUERIES (ESCRITORIO)
+   9. MEDIA QUERIES (ESCRITORIO - MAYOR A 768PX)
    ========================================= */
-/* Ajustes para pantallas más grandes usando min-width[cite: 14] */
+/* IMPORTANTE: Todos los ajustes visuales para escritorio DEBEN ir exclusivamente aquí dentro[cite: 26] */
 @media (min-width: 768px) {
+    
     .nav-toggle {
-        display: none; /* Ocultar hamburguesa en PC */
+        display: none; 
     }
     
     .nav {
@@ -462,12 +513,12 @@ body {
     }
     
     .nav__list {
-        flex-direction: row;
+        flex-direction: row; 
         padding-top: 0;
     }
 
     .nav__link {
-        color: var(--color-text); /* Texto oscuro en PC */
+        color: var(--color-text); 
         font-size: 1rem;
     }
 
@@ -490,6 +541,13 @@ body {
     }
 
     .contact__inner {
-        grid-template-columns: 1fr 1fr; /* Dividir en 2 columnas en PC */
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
+    
+    .contact__form-wrapper {
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
     }
 }

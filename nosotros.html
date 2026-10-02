@@ -8,15 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navegación Principal (Se repite en todos los archivos) -->
     <header class="header">
         <div class="container header__inner">
-            <div class="logo">
-                <span class="logo__text">ASSI</span>
-                <span class="logo__slogan">Asesoría y Soluciones en Sistemas e Informática</span>
-            </div>
+            
+            <!-- El logo ahora es un enlace flexbox -->
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo-assi.png" alt="Logotipo de ASSI" class="logo__img">
+                <div class="logo__text-group">
+                    <span class="logo__text">ASSI</span>
+                    <span class="logo__slogan">Asesoría y Soluciones en Sistemas e Informática</span>
+                </div>
+            </a>
+
+            <!-- Botón Hamburguesa corregido (sin el 4 extra) -->
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
                 <span class="hamburger"></span>
             </button>
+
+            <!-- Menú de Navegación -->
             <nav class="nav" id="navMenu">
                 <ul class="nav__list">
                     <li><a href="index.html" class="nav__link">Inicio</a></li>
@@ -25,6 +35,7 @@
                     <li><a href="contacto.html" class="btn btn--primary">Contáctanos</a></li>
                 </ul>
             </nav>
+            
         </div>
     </header>
 

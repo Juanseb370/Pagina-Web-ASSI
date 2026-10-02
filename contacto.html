@@ -8,12 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navegación Principal[cite: 24] -->
     <header class="header">
         <div class="container header__inner">
-            <div class="logo">
-                <span class="logo__text">ASSI</span>
-                <span class="logo__slogan">Asesoría y Soluciones en Sistemas e Informática</span>
-            </div>
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo-assi.png" alt="Logotipo de ASSI" class="logo__img">
+                <div class="logo__text-group">
+                    <span class="logo__text">ASSI</span>
+                    <span class="logo__slogan">Asesoría y Soluciones en Sistemas e Informática</span>
+                </div>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
                 <span class="hamburger"></span>
             </button>
@@ -37,6 +41,7 @@
                 </div>
                 
                 <div class="contact__inner">
+                    <!-- Columna Izquierda: Información, Mapa compacto y Redes -->
                     <div class="contact__info">
                         <div class="info-block">
                             <h3>Información</h3>
@@ -47,40 +52,52 @@
                                 <li>✉️ gerencia@assi.com.co</li>
                             </ul>
                         </div>
+
                         <div class="info-block">
                             <h3>Ubicación</h3>
                             <div class="map-container">
-                                <img src="https://via.placeholder.com/600x300?text=Mapa+de+Ubicacion+Cali" alt="Mapa de ubicación de oficinas en Cali">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.656515865671!2d-76.505!3d3.385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a1382b604557%3A0x8e0a1b2c3d4e5f6!2sCl.%2068a%20%2341-64%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1650000000000!5m2!1ses!2sco" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Ubicación de oficinas ASSI en Ciudad 2000, Cali">
+                                </iframe>
                             </div>
                         </div>
+
                         <div class="info-block">
                             <h3>Redes Sociales</h3>
                             <div class="social-links">
-                                <a href="#" aria-label="Facebook">FB</a>
-                                <a href="#" aria-label="Instagram">IG</a>
-                                <a href="#" aria-label="WhatsApp">WA</a>
+                                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de ASSI">FB</a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram de ASSI">IG</a>
+                                <a href="https://wa.me/573113179819?text=Hola,%20estoy%20interesado%20en%20una%20asesor%C3%ADa%20tecnol%C3%B3gica" target="_blank" rel="noopener" aria-label="WhatsApp de ASSI">WA</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Columna Derecha: Formulario conectado a Formspree -->
                     <div class="contact__form-wrapper">
                         <h3>Escríbenos</h3>
-                        <form action="#" method="POST" class="contact__form">
+                        <form action="https://formspree.io/f/mzezqnbd" method="POST" class="contact__form" id="contactForm">
                             <div class="form-group">
                                 <label for="nombre">Tu nombre (obligatorio)</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Ej. Carlos Pérez">
                             </div>
                             <div class="form-group">
                                 <label for="correo">Tu correo electrónico (obligatorio)</label>
-                                <input type="email" id="correo" name="correo" required>
+                                <input type="email" id="correo" name="email" required placeholder="correo@empresa.com">
                             </div>
                             <div class="form-group">
                                 <label for="asunto">Asunto</label>
-                                <input type="text" id="asunto" name="asunto">
+                                <input type="text" id="asunto" name="asunto" placeholder="Cotización de servidores">
                             </div>
                             <div class="form-group">
                                 <label for="mensaje">Tu mensaje</label>
-                                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe los detalles de tu solicitud..."></textarea>
                             </div>
                             <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
                         </form>
@@ -90,6 +107,7 @@
         </section>
     </main>
 
+    <!-- Pie de Página -->
     <footer class="footer">
         <div class="container footer__inner">
             <p>Copyright &copy; 2026 ASSI | assi.com.co</p>
