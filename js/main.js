@@ -188,7 +188,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
+// ==========================================
+    // 6. ROTADOR AUTOMÁTICO DE FOTOS DEL FUNDADOR
+    // ==========================================
+    const slides = document.querySelectorAll('.founder__image img.slide');
+    
+    if (slides.length > 1) {
+        let currentSlide = 0;
+        
+        // Intervalo de tiempo para el cambio automático (4000ms = 4 segundos)
+        setInterval(() => {
+            // Quitamos la clase activa de la foto actual
+            slides[currentSlide].classList.remove('active');
+            
+            // Avanzamos al siguiente índice de forma circular
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Activamos la nueva foto
+            slides[currentSlide].classList.add('active');
+        }, 4000);
+    }
 
 
 
