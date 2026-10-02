@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | ASSI - Soluciones en Sistemas y Servidores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <div class="logo">
+                <span class="logo__text">ASSI</span>
+                <span class="logo__slogan">Asesoría y Soluciones en Sistemas e Informática</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav" id="navMenu">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav__link">Servicios</a></li>
+                    <li><a href="nosotros.html" class="nav__link">Nosotros</a></li>
+                    <li><a href="contacto.html" class="btn btn--primary">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Contáctanos</h1>
+                    <p class="section-subtitle">Danos el gusto de atenderte y resolver tus necesidades de infraestructura tecnológica.</p>
+                </div>
+                
+                <div class="contact__inner">
+                    <div class="contact__info">
+                        <div class="info-block">
+                            <h3>Información</h3>
+                            <ul>
+                                <li>📍 Carrera 68A #41-64, Ciudad 2000, Cali</li>
+                                <li>📞 (+57) 3113179819 - 3117406986</li>
+                                <li>✉️ servicioalcliente@assi.com.co</li>
+                                <li>✉️ gerencia@assi.com.co</li>
+                            </ul>
+                        </div>
+                        <div class="info-block">
+                            <h3>Ubicación</h3>
+                            <div class="map-container">
+                                <img src="https://via.placeholder.com/600x300?text=Mapa+de+Ubicacion+Cali" alt="Mapa de ubicación de oficinas en Cali">
+                            </div>
+                        </div>
+                        <div class="info-block">
+                            <h3>Redes Sociales</h3>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook">FB</a>
+                                <a href="#" aria-label="Instagram">IG</a>
+                                <a href="#" aria-label="WhatsApp">WA</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact__form-wrapper">
+                        <h3>Escríbenos</h3>
+                        <form action="#" method="POST" class="contact__form">
+                            <div class="form-group">
+                                <label for="nombre">Tu nombre (obligatorio)</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Tu correo electrónico (obligatorio)</label>
+                                <input type="email" id="correo" name="correo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="asunto">Asunto</label>
+                                <input type="text" id="asunto" name="asunto">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Tu mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>Copyright &copy; 2026 ASSI | assi.com.co</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
