@@ -119,10 +119,11 @@ body {
     text-decoration: none;
 }
 
-.logo__img {
-    height: 48px;
-    width: auto;
-    object-fit: contain;
+/* Corrección de tamaño para el logotipo en la cabecera */
+.logo img {
+    max-height: 45px; /* Ajusta este valor si lo quieres un poco más grande o pequeño */
+    width: auto;      /* Mantiene la proporción perfecta de la imagen */
+    display: block;
 }
 
 .logo__text-group {
